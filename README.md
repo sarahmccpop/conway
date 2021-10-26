@@ -1,3 +1,8 @@
+# How I got to this point 
+
+I opened a terminal window and used <cd ~> to ensure I was in my home directory. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
