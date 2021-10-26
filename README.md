@@ -1,16 +1,29 @@
 # How I got to this point
+
 I opened a terminal window and used `cd ~` to ensure I was in my home directory. 
+
 I used `nvm ls` to check which versions of node version manager were already installed. 
+
 I used `nvm install --lts node` to install the most recent version of node that has the latest long term support. 
+
 Once again I used `cd ~` to ensure I was in home directory (could also have used `pwd`). 
+
 I then used `create-react-app conway` to create a new react app in a directory called conway. 
+
 I used `cd conway` to change directory into conway. 
+
 I used `npm start` to start the web server. This launched a tab in my chrome browser which was web address  `localhost:3000`. 
+
 From here I couldn't run any further command lines, so I opened another tab in terminal to continue. This tab opened in the conway directory. 
+
 The live terminal window had suggested running `npm run build` so (once in conway) I ran this command. 
+
 I then used `ls` to confirm the presence of a `src` directory. I used `cd src` to change directory into src. 
+
 I used `ls` again to confirm presence of App.js file in src folder. 
+
 I used `nano App.js` to edit the App.js file. I found a line which contained `Edit <code>src/App.js</code> and save to reload.`. I removed this text and changed it to I am great. Thanks Andrew :)
+
 I used control & X to open the option for save in nano and responded `Y` to save. I refreshed `localhost:3000` and the edited message appeared onscreen. 
 
 On my internet browser, I opened github and completed the following steps -> 
@@ -23,11 +36,16 @@ On my internet browser, I opened github and completed the following steps ->
 * clicked  Create repository 
 
 On my terminal, I used `pwd` to ensure I was in the conway directory. 
+
 I ran `git remote add origin git@github.com:sarahmccpop/conway.git`
+
 I ran `git branch -M main` to ensure it was the main branch
+
 I ran `git push -u oigin main`
 
 I used `nano README.md` to open this file. I typed in this 'How I got to...' and will save and push it to github, hoping it's formatted well. 
+
+
 
 # Getting Started with Create React App
 
