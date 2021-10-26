@@ -1,6 +1,6 @@
 # How I got to this point 
 
-I opened a terminal window and used <cd ~> to ensure I was in my home directory. 
+I opened a terminal window and used `<cd ~>` to ensure I was in my home directory. 
 
 
 # Getting Started with Create React App
