@@ -7,6 +7,9 @@ function App() {
 	const now = Date.now();
 	const duration = dateFns.intervalToDuration({start: stepOnTheMoon, end: now})
 	
+	const beganAtPop = new Date('2021-10-04T09:00:00');
+	const durationAtPop = dateFns.intervalToDuration({start: beganAtPop, end: now})
+	
 	const dayStart = new Date(null, null, null, 9, 0, 0);
 	const dayEnd = new Date(null, null, null, 18, 0, 0);
 	const dayLength = dateFns.intervalToDuration({start: dayStart, end: dayEnd})
@@ -15,7 +18,9 @@ function App() {
     <div className="App">
       <header className="App-header">
       <p>Neil Armstrong stepped on the moon on {dateFns.format(stepOnTheMoon, "yyyy-MM-dd")} at {dateFns.format(stepOnTheMoon, "HH:mm:ss")}. That's {dateFns.formatDuration(duration)} ago.</p>
-        <p> I'm contracted to work from {dateFns.format(dayStart, "HH:mm")} to {dateFns.format(dayEnd, "HH:mm")} every day, that's {dateFns.formatDuration(dayLength)} hours a day.
+      <p>I began working at POP on {dateFns.format(beganAtPop, "dd-MM-yy")}. I've been working at POP for {dateFns.formatDuration(durationAtPop)}.</p>		       
+
+ <p> I'm contracted to work from {dateFns.format(dayStart, "HH:mm")} to {dateFns.format(dayEnd, "HH:mm")} every day, that's {dateFns.formatDuration(dayLength)} hours a day.
 	 I get {dateFns.format(lunchHour, "HH:mm")} hour for lunch </p>
     </header>
     </div>
