@@ -45,7 +45,15 @@ I ran `git push -u oigin main`
 
 I used `nano README.md` to open this file. I typed in this 'How I got to...' and will save and push it to github, hoping it's formatted well. 
 
+## Update Thursday 28th Oct 
 
+Created React componenets in .jsx files. Each component had `export` before it and were declared as `const`. Next was the component name in camel case. Then `props` were passed to the component and either named in the parameter or also within the component body. A return statement was used to complete the componenets. 
+
+To use the features of date-fns within the .jsx files `import * as dateFns from 'date-fns';` was written at the start of the relevant .jsx file. 
+
+Within the `App.js` file, the components were imported with a command like `import {ComponentName} from './ComponentName';`
+
+Within the `return` function of `App.js` the component was enabled by declaring the ComponentName between < > e.g. `<ComponentName>` and also parameter details could be set within the ` < >` too. Whatever the component was coded to return would then appear on livehost.
 
 # Getting Started with Create React App
 
