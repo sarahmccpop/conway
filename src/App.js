@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <PreCall beganWork={new Date(2021, 9, 28, 8, 0, 0)} callTime={new Date(2021, 9, 28, 9, 0, 0 )}/>
+      <PreCall beganWork={new Date(2021, 9, 28, 8, 0, 0)} calltime={new Date(2021, 9, 28, 9, 0, 0 )}/>
       <NameAge yourName="Andy" yourAge={37}/>  
       <TimeSince thingThatHappened="Andy was born" timeItHappened={new Date(1984, 6, 4, 12, 30)} />
       <DumbMessage title="I am a fish" body="this is the message body" />

@@ -1,4 +1,7 @@
 import * as dateFns from 'date-fns';
+import { useState } from 'react';
+import React from 'react';
+
 
 export const TimeSince = ({thingThatHappened, timeItHappened}) => {
 
@@ -8,7 +11,15 @@ export const TimeSince = ({thingThatHappened, timeItHappened}) => {
     return <p>{thingThatHappened} happened at {dateFns.format(timeItHappened, "yyyy-MM-dd")} at {dateFns.format(timeItHappened, "HH:mm:ss")}. That's {dateFns.formatDuration(timeSince)} ago.</p>
 }
 
+
+
 export const DumbMessageProps = (props) => {
+
+    const {a, b, c} = {a:1, b:2, c:3}
+
+    const [x, y, z] = ["foo", "bar", "baz"]
+
+   // const [counter, setCounter] = useState(0)
 
     return <div>
         <h1>{props.title}</h1>
