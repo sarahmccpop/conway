@@ -1,5 +1,4 @@
 import * as dateFns from 'date-fns';
-import { useState } from 'react';
 import React from 'react';
 
 
@@ -15,9 +14,9 @@ export const TimeSince = ({thingThatHappened, timeItHappened}) => {
 
 export const DumbMessageProps = (props) => {
 
-    const {a, b, c} = {a:1, b:2, c:3}
+    // const {a, b, c} = {a:1, b:2, c:3}
 
-    const [x, y, z] = ["foo", "bar", "baz"]
+    // const [x, y, z] = ["foo", "bar", "baz"]
 
    // const [counter, setCounter] = useState(0)
 
