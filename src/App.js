@@ -83,8 +83,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <WarningMessage/>
-        <button onClick={bigRed.pressedBigRed} id='bigReadButton'>BIG RED BUTTON</button>
+
+        <WarningMessage {...bigRed}/>        
 
         <button onClick={conwayState.iterateConway}>iterate conway</button>
         <button onClick={() => console.log(conwayState.board)}>log conway</button>
