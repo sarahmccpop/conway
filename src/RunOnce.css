@@ -1,0 +1,13 @@
+#bigReadButton{
+    
+    background-color: red;
+    color: white;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+#gameOver{
+    color: red;
+    font-size: 50px;
+    font-weight: 700;
+}

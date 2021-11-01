@@ -1,10 +1,19 @@
+// relevant reading https://reactjs.org/docs/hooks-overview.html
+
+// always remember to import useState from react to access it 
 import { useState} from 'react'
 import './ClickeyButton.css'
 
+
+
 // custom hook -reusable state
+// Hooks are functions that let you “hook into” React state and lifecycle features from function components
 export const useClickeyButton = ({initCount}) => {
+    // declaring a new state variable called clickCounter
+    // and setClickCount to assign an updated value to it
     const [clickCounter, setClickCounter] = useState(initCount);
 
+    // this function 
     const handleClicked = () => console.log("click!")
 
     const incrementCounter = () => {
