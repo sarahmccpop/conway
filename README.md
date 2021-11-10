@@ -41,7 +41,7 @@ I ran `git remote add origin git@github.com:sarahmccpop/conway.git`
 
 I ran `git branch -M main` to ensure it was the main branch
 
-I ran `git push -u oigin main`
+I ran `git push -u origin main`
 
 I used `nano README.md` to open this file. I typed in this 'How I got to...' and will save and push it to github, hoping it's formatted well. 
 
