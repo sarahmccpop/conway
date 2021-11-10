@@ -1,11 +1,11 @@
 import * as dateFns from 'date-fns';
 // importing component names from files
-import { TimeSince, DumbMessage } from './TimeSince';
+import { TimeSince, DumbMessage } from './DateTime/TimeSince';
 import {NameAge} from './NameAge';
-import {PreCall} from './OT';
-import { useClickeyButton, ClickeyButton, PrettyClickeyButton } from './ClickeyButton';
-import {UseBigRedButton, WarningMessage} from './RunOnce';
-import {randomBoard, iterate, useConway, Conway} from "./Conway"
+import {PreCall} from './DateTime/OT';
+import { useClickeyButton, ClickeyButton, PrettyClickeyButton } from './ClickeyButton/ClickeyButton';
+import {UseBigRedButton, WarningMessage} from './RunOnce/RunOnce';
+import {randomBoard, iterate, useConway, Conway} from "./Conway/Conway";
 
 // importing css for App.js (css for components is imported in components files)
 import './App.css';
@@ -38,6 +38,7 @@ function App() {
   // this is used later to display a table
   // conwayState can access all of the functions in useConway
   const conwayState = useConway(60, 80)
+  //const [showConway, setShowConway] = useState(false)
   
   // This section shows ways to differing ways to declare objects and assign them values
   const obj = {
@@ -105,7 +106,7 @@ function App() {
         <PreCall beganWork={new Date(2021, 9, 28, 8, 0, 0)} calltime={new Date(2021, 9, 28, 9, 0, 0 )}/>
         <NameAge yourName="Andy" yourAge={37}/>  
         <TimeSince thingThatHappened="Andy was born" timeItHappened={new Date(1984, 6, 4, 12, 30)} />
-        <DumbMessage title="I am a fish" body="this is the message body" />
+        <DumbMessage title="I am a cat" body="this is the message body" />
         <p>Neil Armstrong stepped on the moon on {dateFns.format(stepOnTheMoon, "yyyy-MM-dd")} at {dateFns.format(stepOnTheMoon, "HH:mm:ss")}. That's {dateFns.formatDuration(duration)} ago.</p>
         <p>I began working at POP on {dateFns.format(beganAtPop, "dd-MM-yy")}. I've been working at POP for {dateFns.formatDuration(durationAtPop)}.</p>		       
         <p> I'm contracted to work from {dateFns.format(dayStart, "HH:mm")} to {dateFns.format(dayEnd, "HH:mm")} every day, that's {dateFns.formatDuration(dayLength)} hours a day. I get {dateFns.format(lunchHour, "HH:mm")} hour for lunch </p>
