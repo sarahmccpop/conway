@@ -1,7 +1,7 @@
 import { useState} from 'react'
 import './RunOnce.css';
 
-export const UseBigRedButton = ({initCount}) => {
+export const useBigRedButton = ({initCount}) => {
     const [stateOfWorld, setPressedButton] = useState(initCount);
     let message = "";
     const [messageToWorld, setMessageToWorld] = useState(message);

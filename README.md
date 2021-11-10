@@ -47,13 +47,37 @@ I used `nano README.md` to open this file. I typed in this 'How I got to...' and
 
 ## Update Thursday 28th Oct 
 
-Created React componenets in .jsx files. Each component had `export` before it and were declared as `const`. Next was the component name in camel case. Then `props` were passed to the component and either named in the parameter or also within the component body. A return statement was used to complete the componenets. 
+Created React componenets in .jsx files. Each component had `export` before it and were declared as `const`. Next was the component name in camel case. Then `props` were passed to the component and either named in the parameter or also within the component body. A return statement was used to complete the components. 
 
 To use the features of date-fns within the .jsx files `import * as dateFns from 'date-fns';` was written at the start of the relevant .jsx file. 
 
 Within the `App.js` file, the components were imported with a command like `import {ComponentName} from './ComponentName';`
 
-Within the `return` function of `App.js` the component was enabled by declaring the ComponentName between < > e.g. `<ComponentName>` and also parameter details could be set within the ` < >` too. Whatever the component was coded to return would then appear on livehost.
+Within the `return` function of `App.js` the component was enabled by declaring the ComponentName between < > e.g. `<ComponentName>` and also parameter details could be set within the ` < >` too. Whatever the component was coded to return would then appear on localhost:3000.
+
+## Update Wednesday 10th November 
+
+Today I was adding a button to show or hide the Conway board. I added a boolean variable within `useConway` in `Conway.jsx`. I set the state to true. Code: `const [showConway, setShowConway] = useState(true)`
+
+I then created a function to toggle the value of `showConway` to either true or false by setting `setShowConway`. The code for that was : `const toggleShowConway = () => {
+        setShowConway(!showConway)
+        console.log("State of showConway:" + showConway)
+    }`
+
+The console would log either true or false depending on the value of showConway. 
+
+I added `showConway` and `toggleShowConway` to the `return` statement of `useConway`. 
+
+Within `App.js` I added ` <button onClick={conwayState.toggleShowConway}>{conwayState.showConway ? "Hide" : "Show"}</button>` to create a button which could hide or reveal the board. When pressed this button also logs the state of `showConway`. I initially had the button text set as Reveal however Andrew showed me how to change the state of the button depending on value of the variable using the ternary operator. Instead of having Reveal as an unchangeable text, the variable setting it allowed the text to change - `{conwayState.showConway ? "Hide" : "Show"}`. This variable is also able to be set in an if statement, which is currently commented out from lines 86-93. Andrew explained it's better to use the ternary operator as it saves lines of code and saves creating an unnecessary mutable variable. 
+
+To activate the show / reveal feature when clicked, below the button I updated the `<Conway etc..>` line to be `{conwayState.showConway && <Conway {...conwayState}/>}`. 
+
+`Conway` was originally set within the `return` as `<Conway board={conwayState.board}/>` however Andrew showed me this could be updated to ` <Conway {...conwayState}/>}`. It turned out I had already used this with `<WarningMessage {...bigRed}/>` too. `bigRed` was assigned value by `  const bigRed = useBigRedButton({initCount:0})`. NOTE: I initially had `useBigRedButton` as `UseBigRedButton` and Andrew told me to amend this. Should always start with lowercase letters. 
+
+I am going to tidy up the code within App.js so that the variables are declared in the order they appear onscreen and also are grouped properly too for readability. 
+
+
+----------------------------------------------------------------------------------------------------
 
 # Getting Started with Create React App
 
@@ -125,3 +149,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
