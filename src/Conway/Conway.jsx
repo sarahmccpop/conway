@@ -117,6 +117,11 @@ export const iterate = (board) => {
 export const useConway = (rows, cols) => {
     // using function randomBoard to generate a random board with the specified numbers of cols and rows and giving it state
     const [board, setBoard] = useState(randomBoard(cols, rows))
+    const [showConway, setShowConway] = useState(true)
+    const toggleShowConway = () => {
+        setShowConway(!showConway)
+        console.log("State of showConway:" + showConway)
+    }
 
     // updating the state by iterating a new board and assigning it to the label newBoard, newBoard is then used to set a new state
     const iterateConway = () => {
@@ -132,6 +137,8 @@ export const useConway = (rows, cols) => {
 
     return {
         board,
+        showConway,
+        toggleShowConway,
         iterateConway,
         randomize,
     }
