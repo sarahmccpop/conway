@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -15,7 +15,6 @@ def foo():
 @app.route("/sarah")
 def sarah():
     return "<h1>Hi Sarah </h1>"    
-
 
 @app.route("/double/<my_number>")
 def double(my_number):
@@ -45,6 +44,12 @@ users = {
     5: {"name": "Emily", "job": "Helicopter Pilot"},
 }
 
+@app.route("/template-test")
+@app.route("/template-test/<name>")
+def template_test(name="Andy"):
+    return render_template("hello.html", name=name, users=users)
+
+
 @app.route("/user/<int:user_id>")
 def get_user(user_id):
 
@@ -72,5 +77,5 @@ def get_userdetails(user_id, key):
         key = user[key]
     except KeyError:
         return jsonify(f"We don't have a detail called '{key}'"), 400
-        
+
     return jsonify(key)    

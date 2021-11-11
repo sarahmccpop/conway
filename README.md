@@ -76,6 +76,111 @@ To activate the show / reveal feature when clicked, below the button I updated t
 
 I am going to tidy up the code within App.js so that the variables are declared in the order they appear onscreen and also are grouped properly too for readability. 
 
+## Update Thursday 11th Novmeber - python
+
+Created a directory/folder `webserver` which contains a python file `app.py`. This file sets routes (URL endpoints). To do this we used `Flask` library via `pip install flask`. In the app.py we imported Flask via `from flask import Flask`. Then used `app = Flask(__name__)`
+https://blog.miguelgrinberg.com/post/why-do-we-pass-name-to-the-flask-class
+
+`@app.route("/sarah")` is used to create URL with the endpoint /sarah. Directly below this code a function is defined to dictate what the url endpoint should display (via a return statement). 
+
+Variables can be set in the url endpoint by using `< > ` angled brackets. For example - 
+`@app.route("/double/<my_number>")
+def double(my_number):
+    
+    return f"Your number is {my_number}"`
+
+The variable is passed as a parameter into the function definition. 
+
+`f` before a return statement is used to format the variable in the return statement and the variable must be in `{}` curly brackets to access it. 
+
+Several parameters can be defined in a url - e.g. 
+`@app.route("/users/<int:user_id>/charge/<int:amount>/")
+def charge_user(user_id, amount):
+
+    return f"I am charging user {user_id} {amount} pounds."`
+
+To run flask, you can either use - 
+`FLASK_ENV=development FLASK_APP=webserver.app python -m flask run` within terminal OR `./run-flask.sh` within terminal which is a file in the conway folder which contains the previous command. development within the command means that the appearance will be updated as changes occur. 
+
+The app can be accessed at http://127.0.0.1:5000/ 
+
+A very basic database can be created by using a python dictionary - e.g
+`
+users = {
+    1: {"name": "Alice", "job": "Doctor"},
+    2: {"name": "Bob", "job": "Fireman"},
+    3: {"name": "Claire", "job": "Police"},
+    4: {"name": "Dave", "job": "Greengrocer"},
+    5: {"name": "Emily", "job": "Helicopter Pilot"},
+} `
+
+To display returned objects in an json array, `jsonify` was imported by updating the import statement to `from flask import Flask, jsonify`. 
+
+Accessing the database could be done like so - 
+`@app.route("/user/<int:user_id>")
+def get_user(user_id):
+
+    user = users[user_id]
+
+    return jsonify(user)`
+
+The result returned is jsonified and displays as - 
+`{
+  "job": "Doctor", 
+  "name": "Alice"
+}`
+
+To display an error message, eg if a user number is entered in the URL that doesn't exist in the database, an error message can be displayed by using a `try: except` catch. e.g. 
+`@app.route("/user/<int:user_id>/<key>")
+def get_userdetails(user_id, key):
+    try:
+        user = users[user_id]
+    except KeyError:
+        return jsonify("That user doesn't exist"), 404    
+        
+    try:
+        key = user[key]
+    except KeyError:
+        return jsonify(f"We don't have a detail called '{key}'"), 400
+
+    return jsonify(key) `
+
+To test python I installed pytest via `pip install pytest`. For pytest to run a file called `__init.py__` was created. This file is empty but its presence initialises python for testing.  
+
+To test the functions were returning what they should, a `test_app.py` file was created. Then `import pytest` was written at line 1 to access testing capabilites. 
+To name the file that should be tested `import webserver.app` was imported. This is foldername.filename. 
+
+To test a function, declare a test followed by the function name e.g.
+`def test_foo():
+  result = webserver.app.foo()
+
+    assert result == "<h1>Baz!</h1>"
+`
+An error can also be tested for with `pytest.raises(KeyError):`
+
+Several tests can be run at once using `@pytest.mark.parametrize` to run several tests. 
+
+A folder within `webserver` was created called `templates` which contains a html file `hello.html`. To access the ability to display templates, the from statement at the top of `app.py` was updated to `from flask import Flask, jsonify, render_template`. 
+
+Variables can displayed in the html file in curly braces - e.g. - 
+`<p>Your name is {{name}}</p>`
+
+To loop through a python database in html  a for loop was used - e.g.
+`{% for user_id, user in users.items() %}
+    <li>{{user_id}} Name: {{user.name}}. Job: {{user.job}}.</li>
+    {% endfor %}`
+This structure is different to what I'm used to seeing. 
+
+To display the html it is rendered in app.py in the return statement - e.g.
+`def template_test(name="Andy"):
+    return render_template("hello.html", name=name, users=users)`
+
+Also two URLs can display the same html e.g. - 
+`@app.route("/template-test")
+@app.route("/template-test/<name>")
+def template_test(name="Andy"):
+    return render_template("hello.html", name=name, users=users)`
+
 
 ----------------------------------------------------------------------------------------------------
 
