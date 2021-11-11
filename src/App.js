@@ -13,6 +13,7 @@ import {
   WarningMessage,
 } from "./RunOnce/RunOnce";
 import { randomBoard, iterate, useConway, Conway } from "./Conway/Conway";
+import { EmployeeData, useEmployeeData } from "./EmployeeData";
 
 // importing css for App.js (css for components is imported in components files)
 import "./App.css";
@@ -123,10 +124,14 @@ function App() {
 
   // console.log("easier to understand", {obj, obj2, obj3, foo, bar})
 
+  const employeeState = useEmployeeData();
+
   return (
     <div className="App">
       <header className="App-header">
+        <EmployeeData {...employeeState}/>
         <WarningMessage {...bigRed} />
+  
 
         <button onClick={conwayState.iterateConway}>iterate conway</button>
         <button onClick={() => console.log(conwayState.board)}>
@@ -140,6 +145,7 @@ function App() {
           {conwayState.showConway ? "Hide" : "Show"}
         </button>
         {conwayState.showConway && <Conway {...conwayState} />}
+
 
         <ClickeyButton
           label="One"

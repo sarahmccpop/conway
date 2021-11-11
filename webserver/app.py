@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, render_template
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def hello_world():
@@ -50,22 +52,25 @@ def template_test(name="Andy"):
     return render_template("hello.html", name=name, users=users)
 
 
+
+# get just a user
 @app.route("/user/<int:user_id>")
 def get_user(user_id):
 
     user = users[user_id]
 
-    return jsonify(user)
+    return jsonify(user)    
 
 # get just a users job
 @app.route("/user/<int:user_id>/job")
-def get_userjob(user_id):
+def get_user_job(user_id):
 
     user = users[user_id]
-    job = user["job"]
-    return jsonify(job)
 
-# get any detail about a user 
+    job = user["job"]
+
+    return job
+
 @app.route("/user/<int:user_id>/<key>")
 def get_userdetails(user_id, key):
     try:
