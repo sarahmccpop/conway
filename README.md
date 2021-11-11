@@ -76,7 +76,7 @@ To activate the show / reveal feature when clicked, below the button I updated t
 
 I am going to tidy up the code within App.js so that the variables are declared in the order they appear onscreen and also are grouped properly too for readability. 
 
-## Update Thursday 11th Novmeber - python
+## Update Thursday 11th November - python - morning session
 
 Created a directory/folder `webserver` which contains a python file `app.py`. This file sets routes (URL endpoints). To do this we used `Flask` library via `pip install flask`. In the app.py we imported Flask via `from flask import Flask`. Then used `app = Flask(__name__)`
 https://blog.miguelgrinberg.com/post/why-do-we-pass-name-to-the-flask-class
@@ -182,77 +182,25 @@ def template_test(name="Andy"):
     return render_template("hello.html", name=name, users=users)`
 
 
-----------------------------------------------------------------------------------------------------
+## Update Thursday 11th November - python - afternoon  session
+Aim was to create a .jsx file that accessed details from the simple database stored in app.py. 
+Created a file `EmployeeData.jsx` in `src`. 
 
-# Getting Started with Create React App
+Firstly covered different ways of writing a JS function which is commented out in `EmployeeData.jsx`. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A new component called `EmployeeData` was created which took `props` as a parameter. 
+It returns html within a `<div></div>`. The div contains an input form and and a button. 
 
-## Available Scripts
+Hooks were created is another function `useEmployeeData`. To add state to the variables within it, `import {useState, useEffect} from 'react';` was used at the top of the file. 
+A variable `inputtedText` was set to `''` (empty string) using State and then within the `input` box the value was assigned to `inputtedText` using {} curly braces. 
 
-In the project directory, you can run:
+To set the value of `inputtedText` another function was created inside `useEmployeeData` called `handleChange`. handleChange is activated `onChange` of the input. Like `onClick` but instead `onChange`.
 
-### `npm start`
+An `event` was passed into this and a new variable `newText` was assigned to the value of event.target.value - 
+` const newText = event.target.value`. Don't know exactly how this works - **do reading on event**. The value of `inputtedText` was set to the value of the variable newText. `setInputtedText(newText);` was used to do this. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To submit the contents of the input, a button was created and an onClick called a function `handleGetEmployeeData` - which was created in `useEmployeedata`. Initially used the console.log to register if the button was being clicked. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 

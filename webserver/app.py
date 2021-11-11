@@ -71,8 +71,6 @@ def get_user_job(user_id):
 
     return job
 
-@app.route("/user/<int:user_id>/<key>")
-def get_userdetails(user_id, key):
     try:
         user = users[user_id]
     except KeyError:
