@@ -199,8 +199,32 @@ To set the value of `inputtedText` another function was created inside `useEmplo
 An `event` was passed into this and a new variable `newText` was assigned to the value of event.target.value - 
 ` const newText = event.target.value`. Don't know exactly how this works - **do reading on event**. The value of `inputtedText` was set to the value of the variable newText. `setInputtedText(newText);` was used to do this. 
 
-To submit the contents of the input, a button was created and an onClick called a function `handleGetEmployeeData` - which was created in `useEmployeedata`. Initially used the console.log to register if the button was being clicked. 
+To submit the contents of the input, a button was created (within `EmployeeData`) and an onClick called a function `handleGetEmployeeData` - which was created in `useEmployeedata`. Initially used the console.log to register if the button was being clicked. 
+
+3 other useState variables were created in `useEmployeeData` to set the status - `isLoaded`, `userInfo`, `error` along with setters. The initial state of isLoaded was set to `true` and the intital states of userInfo and error were set to `null`.
+
+Within `handleGetEmployeeData` (activated when the button is clicked), `setUserInfo` was assigned `null` and `setIsLoaded` was assigned `false`.
+
+A `const url` was declared in `useEmployeeData` which was set to the value of `http://127.0.0.1:5000/user/${inputtedText}`. This address was used because this is the url made live when Flask is activated (`./run-flask.sh`). The inputtedText is passed to the url as userID. 
+
+A function called `useEffect` was created in `useEmployeeData`.  
+
+It used fetch and then - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+If isLoaded is true, the console logs a fetch complete message. 
+
+`fetch(url)` is used to fetch the contents of the url and the response is converted to a json array. 
+
+The result of of the fetch then sets `isLoaded` to true, and setUserInfo is set to result and setError is set to null. 
+If result is an error, an setError is set to the value of error. 
+
+Return statement of `useEmployeeData` returns `userInfo, error, inputtedText, handleChange, handleGetEmployeeData`. 
 
 
+There is a function called `UserInfo` which takes in props and returns the contents as a list. It uses `Object.entries` and maps it - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+
+In `App.js` another `import` statement was added at the top of the code to `import { EmployeeData, useEmployeeData } from "./EmployeeData";` . An new const employeeState was declared, to access the functions in useEmployeeData - `const employeeState = useEmployeeData();`. 
+
+Within the return statement of App.js EmployeeData was called and employeeState was passed to it - `<EmployeeData {...employeeState}/>`. 
 
 
