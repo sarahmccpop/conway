@@ -5,19 +5,6 @@ import csv
 app = Flask(__name__)
 CORS(app)
 
-file = open('employeedata.csv')
-type(file)
-csvreader = csv.reader(file)
-header = []
-header = next(csvreader) #gets the column titles so these aren't included 
-rows = []
-for row in csvreader:
-    rows.append(row)
-
-#print(rows) 
- 
-
-
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
@@ -60,9 +47,19 @@ users = {
     5: {"name": "Emily", "job": "Helicopter Pilot"},
 }
 
+# note! when running this with flask, the csv needed the route directory in front of it for flask to run
+# didn't need this in readingcsv.py when run locally in terminal 
+file = open('webserver/employeedata.csv')
+type(file)
+csvreader = csv.reader(file)
+header = []
+header = next(csvreader) #gets the column titles so these aren't included 
+rows = []
+for row in csvreader:
+    rows.append(row)
 
-
-
+#print(rows) 
+ 
 @app.route("/template-test")
 @app.route("/template-test/<name>")
 def template_test(name="Andy"):
