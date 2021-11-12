@@ -8,8 +8,10 @@
 </head>
 <body>
     <h1>Hi Sarah</h1>
-    {% for name, job, hours in rows.items() %}
-    <li> Name: {{rows[0]}}. Job: {{rows[1]}}. Hours: {{rows[2]}}</li>
-    {% endfor %}
+    <ul>
+        {% for name, job in input_file.items() %}
+        <li> Name: {{input_file.name}}. Job: {{input_file.job}}.</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

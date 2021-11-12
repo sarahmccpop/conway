@@ -1,7 +1,6 @@
-Name, Job, Hours
-Dorothy, Doctor, Full-time
-John, Joiner, Full-time
-Linda, Librarian, Part-time
-Gavin, Gardener, Part-time
-Sarah, Apprentice Software Developer, Full-time
-Sarah, Bad-ass, Part-time
+name, job, Hours
+Sarah, apprentice software developer, fulltime
+Joe, farmer, fulltime
+Sean, student, part-time
+Ellen, marketing exec, fulltime
+Margot, teacher, part-time

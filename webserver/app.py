@@ -49,16 +49,21 @@ users = {
 
 # note! when running this with flask, the csv needed the route directory in front of it for flask to run
 # didn't need this in readingcsv.py when run locally in terminal 
-file = open('webserver/employeedata.csv')
-type(file)
-csvreader = csv.reader(file)
-header = []
-header = next(csvreader) #gets the column titles so these aren't included 
-rows = []
-for row in csvreader:
-    rows.append(row)
+#file = open('webserver/employeedata.csv')
+#type(file)
+#csvreader = csv.reader(file)
+#header = []
+#header = next(csvreader) #gets the column titles so these aren't included 
+#rows = []
+#for row in csvreader:
+ #   rows.append(row)
 
-#print(rows) 
+input_file = csv.DictReader(open("webserver/employeedata.csv"))
+
+
+
+
+
  
 @app.route("/template-test")
 @app.route("/template-test/<name>")
@@ -67,7 +72,7 @@ def template_test(name="Andy"):
 
 @app.route("/sarahs-page")
 def sarahs_page():
-    return render_template("employees.html", rows=rows)
+    return render_template("employees.html", input_file=input_file)
 
 # get just a user
 @app.route("/user/<int:user_id>")
@@ -99,5 +104,5 @@ def get_user_job(user_id):
 
     return jsonify(key)    
 
-file.close()  
+
 
